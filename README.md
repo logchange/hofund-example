@@ -7,6 +7,12 @@ applications, connections and discover current state of components of the system
 
 This project contains following modules:
 
+- products
 - cart
 - payment
-- products
+
+### Prometheus
+
+- [products](http://localhost:18081/actuator/prometheus)
+- [cart](http://localhost:18082/actuator/prometheus)
+- [payment](http://localhost:18083/actuator/prometheus)
