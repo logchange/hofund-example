@@ -1,7 +1,7 @@
 version: '3.5'
 
 services:
-# Products service - spring boot 2.2.0 and oracle
+  # Products service - spring boot 2.2.0 and oracle
   products-db:
     container_name: products-db
     image: gvenzl/oracle-xe
