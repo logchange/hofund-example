@@ -30,8 +30,10 @@ scrape_configs:
 
   - job_name: app
     scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['host.docker.internal:8000']
+      - targets: ['host.docker.internal:18081', 'host.docker.internal:18082', 'host.docker.internal:18083']
+
 
   - job_name: 'prometheus'
 
