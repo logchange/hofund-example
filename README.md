@@ -29,3 +29,18 @@ Edges
 ```
 sum(label_replace(hofund_connection_status, "title", "$1", "target","(.+)")) without (source, target, instance, job, type)
 ```
+
+nodes from last 7 days:
+```text
+sum(0 * sum_over_time(hofund_node[7d])) by (id, title, subtitle, type)
+```
+
+% of time when node was up
+```text
+sum(avg_over_time(( sum without() (hofund_info) or (0 * sum_over_time(hofund_info[7d])) )[7d:5m])) by (id)
+```
+
+Current state of nodes:
+```text
+sum(sum without() (hofund_info) or (0 * sum_over_time(hofund_info[7d]))) by (id)
+```
