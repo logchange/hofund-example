@@ -5,10 +5,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class StatsController {
 
+    private final StatsService statsService;
+
+    public StatsController(StatsService statsService) {
+        this.statsService = statsService;
+    }
 
     @GetMapping("/stats")
     Iterable<Stat> all() {
-        return null;
+        return statsService.getStats();
     }
 
     @GetMapping("/stats/{id}")

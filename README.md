@@ -10,12 +10,20 @@ This project contains following modules:
 - products
 - cart
 - payment
+- stats
+
+### Grafana Credentials
+
+- Login: admin
+- Password: foobar
 
 ### Prometheus
 
 - [products](http://localhost:18081/actuator/prometheus)
 - [cart](http://localhost:18082/actuator/prometheus)
 - [payment](http://localhost:18083/actuator/prometheus)
+- [stats](http://localhost:18084/actuator/prometheus)
+
 
 Nodes
 ```
