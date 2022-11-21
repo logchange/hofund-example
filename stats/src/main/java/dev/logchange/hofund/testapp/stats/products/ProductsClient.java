@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@FeignClient(name = "products", url = "http://localhost:18081/")
+@FeignClient(name = "products", url = "{client.products.url:http://localhost:18081/}")
 public interface ProductsClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/products")
