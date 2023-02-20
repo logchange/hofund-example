@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+  # Cart service - spring boot 3.0.0 and postgres
+  cart-db:
+    container_name: cart-db
+    image: postgres
+    ports:
+      - "15433:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=cart
+  cart-app:
+    container_name: cart-app
+    image: cart-app
+    build:
+      context: .
+    ports:
+      - "18082:8080"
+      - "18002:8000"

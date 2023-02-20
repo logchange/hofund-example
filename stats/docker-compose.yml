@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+  stats-app:
+    container_name: stats-app
+    image: stats-app
+    build:
+      context: .
+    ports:
+      - "18084:8080"
+      - "18004:8000"

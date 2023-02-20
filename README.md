@@ -16,6 +16,8 @@ This project contains following modules:
 
 ### Grafana Credentials
 
+- [Grafana](http://localhost:3000)
+
 - Login: admin
 - Password: foobar
 

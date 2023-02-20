@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+  # Products service - spring boot 2.2.0 and oracle
+  products-db:
+    container_name: products-db
+    image: gvenzl/oracle-xe
+    ports:
+      - "11521:1521"
+    environment:
+      - ORACLE_PASSWORD=password
+      - ORACLE_DATABASE=products
+      - APP_USER=products
+      - APP_USER_PASSWORD=password
+  products-app:
+    container_name: products-app
+    image: products-app
+    build:
+      context: .
+    ports:
+      - "18081:8080"
+      - "18001:8000"

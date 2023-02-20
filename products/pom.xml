@@ -58,7 +58,7 @@
 		<dependency>
 			<groupId>dev.logchange.hofund</groupId>
 			<artifactId>hofund-spring-boot-starter</artifactId>
-			<version>0.3.0</version>
+			<version>0.4.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -81,6 +81,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>4.9.10</version> <!-- for java 11 you can use 5.0.0 (https://github.com/git-commit-id/git-commit-id-maven-plugin#relocation-of-the-project) -->
+				<configuration>
+					<failOnNoGitDirectory>false</failOnNoGitDirectory>
+					<injectAllReactorProjects>true</injectAllReactorProjects>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

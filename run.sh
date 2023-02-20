@@ -6,16 +6,16 @@ cd payment && mvn clean package -DskipTests && cd ..
 cd stats && mvn clean package -DskipTests && cd ..
 
 
-docker-compose rm -f -s -v products-db
-docker-compose rm -f -s -v products-app
+docker rm -f -v products-db
+docker rm -f -v products-app
 
-docker-compose rm -f -s -v cart-db
-docker-compose rm -f -s -v cart-app
+docker rm -f -v cart-db
+docker rm -f -v cart-app
 
-docker-compose rm -f -s -v payment-db
-docker-compose rm -f -s -v payment-app
+docker rm -f -v payment-db
+docker rm -f -v payment-app
 
-docker-compose rm -f -s -v stats-app
+docker rm -f -v stats-app
 
 docker-compose pull
 docker-compose up --build --remove-orphans
