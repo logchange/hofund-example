@@ -1,7 +1,7 @@
 version: '3.5'
 
 services:
-  # Products service - spring boot 2.2.0 and oracle
+  # Products service - spring boot and oracle
   products-db:
     container_name: products-db
     image: gvenzl/oracle-xe
@@ -20,7 +20,9 @@ services:
     ports:
       - "18081:8080"
       - "18001:8000"
-  # Cart service - spring boot 3.0.0 and postgres
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # Cart service - spring boot and postgres
   cart-db:
     container_name: cart-db
     image: postgres
@@ -30,6 +32,8 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
       - POSTGRES_DB=cart
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   cart-app:
     container_name: cart-app
     image: cart-app
@@ -38,7 +42,9 @@ services:
     ports:
       - "18082:8080"
       - "18002:8000"
-  # Payment service - spring boot 3.0.0 and postgres
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # Payment service - spring boot and postgres
   payment-db:
     container_name: payment-db
     image: postgres
@@ -48,6 +54,8 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
       - POSTGRES_DB=payment
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   payment-app:
     container_name: payment-app
     image: payment-app
@@ -56,6 +64,8 @@ services:
     ports:
       - "18083:8080"
       - "18003:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   # Stats service
   stats-app:
     container_name: stats-app
@@ -65,3 +75,5 @@ services:
     ports:
       - "18084:8080"
       - "18004:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

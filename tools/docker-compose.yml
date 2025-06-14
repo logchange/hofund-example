@@ -24,6 +24,8 @@ services:
       - alertmanager:alertmanager
     depends_on:
       - cadvisor
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   node-exporter:
     container_name: "node-exporter"
@@ -42,6 +44,8 @@ services:
     restart: always
     deploy:
       mode: global
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   alertmanager:
     container_name: "alertmanager"
@@ -54,6 +58,8 @@ services:
     command:
       - '--config.file=/etc/alertmanager/config.yml'
       - '--storage.path=/alertmanager'
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   cadvisor:
     container_name: "cadvisor"
@@ -68,6 +74,8 @@ services:
     restart: always
     deploy:
       mode: global
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   grafana:
     container_name: "grafana"
@@ -85,3 +93,5 @@ services:
       - 3000:3000
     depends_on:
       - prometheus
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

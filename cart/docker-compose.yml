@@ -19,3 +19,7 @@ services:
     ports:
       - "18082:8080"
       - "18002:8000"
+    #Uncomment if you are using linux
+    network_mode: "host"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
